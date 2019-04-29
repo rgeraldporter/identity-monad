@@ -9,7 +9,7 @@ describe('The monad', () => {
         const leftIdentity1 = Identity.of(1).chain(f);
         const leftIdentity2 = f(1);
 
-        expect(leftIdentity1.join()).toEqual(leftIdentity2.join());
+        expect(leftIdentity1.emit()).toEqual(leftIdentity2.emit());
     });
 
     it('should satisfy the second monad law of right identity', () => {
@@ -17,7 +17,7 @@ describe('The monad', () => {
         const rightIdentity1 = Identity.of(2).chain(Identity.of);
         const rightIdentity2 = Identity.of(2);
 
-        expect(rightIdentity1.join()).toEqual(rightIdentity2.join());
+        expect(rightIdentity1.emit()).toEqual(rightIdentity2.emit());
     });
 
     it('should satisfy the third monad law of associativity', () => {
@@ -32,6 +32,6 @@ describe('The monad', () => {
             g(x).chain(f)
         );
 
-        expect(associativity1.join()).toEqual(associativity2.join());
+        expect(associativity1.emit()).toEqual(associativity2.emit());
     });
 });

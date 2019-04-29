@@ -2,6 +2,7 @@ export interface Monad<T> {
     map: (f: Function) => Monad<T>;
     chain: <U>(f: Function) => Monad<U>;
     join: () => T;
+    emit: () => T;
     inspect: () => string;
 }
 
